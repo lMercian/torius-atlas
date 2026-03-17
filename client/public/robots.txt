@@ -1,0 +1,23 @@
+# Robots.txt for Torius Atlas
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /checkout/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://toriusatlas.com/sitemap.xml
+Sitemap: https://www.toriusatlas.com/sitemap.xml

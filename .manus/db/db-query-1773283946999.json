@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, productId, imageUrl, isPrimary FROM product_images ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 43Em354qFW4bbHn.root --database DhCkdXWiKSny2JihDNgmoE --execute SELECT id, productId, imageUrl, isPrimary FROM product_images ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "1",
+      "productId": "1",
+      "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411017551/DhCkdXWiKSny2JihDNgmoE/products/1/1773283934334-test-image.png",
+      "isPrimary": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tproductId\timageUrl\tisPrimary\n1\t1\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663411017551/DhCkdXWiKSny2JihDNgmoE/products/1/1773283934334-test-image.png\t1\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

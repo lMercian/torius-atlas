@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1772943448923,
+      "tag": "0000_old_dragon_lord",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1772943530480,
+      "tag": "0001_wise_steel_serpent",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1773120930264,
+      "tag": "0002_great_pepper_potts",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1773194774880,
+      "tag": "0003_material_cyclops",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1773280016870,
+      "tag": "0004_happy_magdalene",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1773285202884,
+      "tag": "0005_familiar_northstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1773287571699,
+      "tag": "0006_colorful_marvel_boy",
+      "breakpoints": true
+    }
+  ]
+}

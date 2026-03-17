@@ -1,0 +1,15 @@
+{
+  "query": "SELECT COUNT(*) as total_products, COUNT(CASE WHEN active = true THEN 1 END) as active_products, COUNT(CASE WHEN active = false THEN 1 END) as inactive_products FROM products;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 43Em354qFW4bbHn.root --database DhCkdXWiKSny2JihDNgmoE --execute SELECT COUNT(*) as total_products, COUNT(CASE WHEN active = true THEN 1 END) as active_products, COUNT(CASE WHEN active = false THEN 1 END) as inactive_products FROM products;",
+  "rows": [
+    {
+      "total_products": "1",
+      "active_products": "1",
+      "inactive_products": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_products\tactive_products\tinactive_products\n1\t1\t0\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}
