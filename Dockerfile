@@ -1,25 +1,40 @@
-# Build Aşaması
+# 1. Build Aşaması
 FROM node:20-slim AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 WORKDIR /app
+
+# Bağımlılık dosyalarını kopyala
+COPY package.json pnpm-lock.yaml ./
+
+# Bağımlılıkları kur
+RUN pnpm install --frozen-lockfile
+
+# Tüm proje dosyalarını kopyala
 COPY . .
 
-# Bağımlılıkları kur ve build et
-RUN pnpm install
+# Projeyi build et (Vite + Esbuild)
 RUN pnpm build
 
-# Çalıştırma Aşaması
+# 2. Çalıştırma Aşaması
 FROM node:20-slim
-WORKDIR /app
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-# Sadece gerekli dosyaları kopyala
+WORKDIR /app
+
+# Sadece gerekli dosyaları builder'dan al
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+# Drizzle migration'lar için gerekliyse (opsiyonel)
+COPY --from=builder /app/drizzle ./drizzle 
 
+# Portu tanımla (Senin env dosmanda 3009 demiştin)
 EXPOSE 3009
+
+# Uygulamayı başlat
 CMD ["pnpm", "start"]
