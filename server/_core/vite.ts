@@ -21,9 +21,9 @@ export async function setupVite(app, server, vite) {
 
       const page = await vite.transformIndexHtml(url, template);
 
-      res.status(200)
-        .set({ "Content-Type": "text/html" })
-        .end(page);
+     res.status(200);
+res.setHeader("Content-Type", "text/html");
+res.end(page);
 
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
