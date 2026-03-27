@@ -29,7 +29,7 @@ export async function setupVite(app: Express, server: Server) {
   process.env.NODE_ENV === "production"
     ? path.resolve("dist", "public", "index.html")
     : path.resolve("client", "index.html");
-      );
+      
 
       // always reload the index.html file from disk incase it changes
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
