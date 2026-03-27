@@ -6,10 +6,10 @@ export async function renderPage(req, res, next, vite) {
   try {
     const url = req.originalUrl;
 
-    const clientTemplate =
-      process.env.NODE_ENV === "production"
-        ? path.resolve("dist", "public", "index.html")
-        : path.resolve("client", "index.html");
+   const clientTemplate =
+  process.env.NODE_ENV === "production"
+    ? path.resolve("dist", "public", "index.html")
+    : path.resolve("client", "index.html");
 
     let template = await fs.promises.readFile(clientTemplate, "utf-8");
 
