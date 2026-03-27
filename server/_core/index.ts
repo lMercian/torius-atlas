@@ -1,6 +1,5 @@
 import express from "express";
 import { createServer } from "http";
-import { createServer as createViteServer } from "vite";
 import { setupVite, serveStatic } from "./vite";
 
 const app = express();
@@ -12,6 +11,9 @@ async function start() {
   if (isProduction) {
     serveStatic(app);
   } else {
+    const viteModule = await import("vite");
+    const createViteServer = viteModule.createServer;
+
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "custom",
