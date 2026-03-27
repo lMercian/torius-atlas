@@ -1,26 +1,12 @@
 import express from "express";
 import { createServer } from "http";
-import { setupVite, serveStatic } from "./vite";
+import { serveStatic } from "./vite";
 
 const app = express();
 const server = createServer(app);
 
 async function start() {
-  const isProduction = process.env.NODE_ENV === "production";
-
-  if (isProduction) {
-    serveStatic(app);
-  } else {
-    const viteModule = await import("vite");
-    const createViteServer = viteModule.createServer;
-
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "custom",
-    });
-
-    await setupVite(app, server, vite);
-  }
+  serveStatic(app);
 
   const port = Number(process.env.PORT) || 3009;
 
