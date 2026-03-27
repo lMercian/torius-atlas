@@ -27,10 +27,12 @@ export async function setupVite(app, server, vite) {
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/html");
       res.end(page);
-    } catch (e) {
-      vite.ssrFixStacktrace(e as Error);
-      next(e);
-    }
+   } catch (e) {
+  if (vite?.ssrFixStacktrace) {
+    vite.ssrFixStacktrace(e as Error);
+  }
+  next(e);
+}
   });
 }
 
