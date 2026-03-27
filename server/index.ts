@@ -12,9 +12,9 @@ async function startServer() {
 
   // Serve static files from dist/public in production
   const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
+  process.env.NODE_ENV === "production"
+    ? path.resolve(__dirname, "public")
+    : path.resolve(__dirname, "..", "client");
 
   app.use(express.static(staticPath));
 
