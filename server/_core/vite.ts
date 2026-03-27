@@ -1,3 +1,4 @@
+import express from "express";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
@@ -38,5 +39,5 @@ export async function setupVite(app, server, vite) {
 
 export function serveStatic(app) {
   const distPath = path.resolve("dist/public");
-  app.use(require("express").static(distPath));
+  app.use(express.static(distPath));
 }
